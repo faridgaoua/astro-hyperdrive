@@ -13,25 +13,21 @@ import GridItem from "~/components/GridItem.astro";
 import ShowPosts from "~/components/ShowPosts.astro";
 import Team from "~/components/Team.astro";
 import Stats from "~/components/Stats.astro";
-import ShowCars from "~/components/ShowCars.astro";
 
 // Images
 import ImageCarDealer from "~/assets/images/pexels-shkrabaanthony-7144179.jpg";
 import ImageHeadingBackground from "~/assets/images/pexels-jeshoots-com-147458-451590.jpg";
+import ShowCars from "~/components/ShowCars.astro";
 import ImageOne from "~/assets/images/pexels-leif-bergerson-99376750-9764731.webp";
 import ImageTwo from "~/assets/images/pexels-zenzazione-2922140.webp";
 ---
 
 <Layout pageTitle="Home">
-	{/* Main Heading - Optimized for LCP */}
+	{/* Main Heading */}
 	<Section class:list={"relative"}>
 		<Image
 			src={ImageHeadingBackground}
 			alt="Heading background"
-			widths={[800, 1200, 1600, ImageHeadingBackground.width]}
-			sizes="100vw"
-			loading="eager"
-			fetchpriority="high"
 			class:list={"absolute inset-0 w-full h-full object-cover"}
 		/>
 		<div class="absolute inset-0 w-full h-full object-cover bg-gray-800/80"></div>
@@ -49,7 +45,7 @@ import ImageTwo from "~/assets/images/pexels-zenzazione-2922140.webp";
 		</Container>
 	</Section>
 
-	{/* Hero - Fixed Oversized Image (1279px served vs 462px displayed) */}
+	{/* Hero */}
 	<Section>
 		<Container>
 			<Hero>
@@ -59,82 +55,217 @@ import ImageTwo from "~/assets/images/pexels-zenzazione-2922140.webp";
 						Find your next car here. We have a wide range of cars for sale. Browse through our collection
 						and find the perfect car that suits your needs and budget.
 					</p>
+
 					<Button href="/cars" class:list={"mt-4"}>View all cars</Button>
 				</div>
 				<div slot="hero-right">
-					<Image 
-						src={ImageCarDealer} 
-						alt="Car dealer" 
-						widths={[480, 800]} 
-						sizes="(max-width: 1024px) 100vw, 480px"
-					/>
+					<Image src={ImageCarDealer} alt="Car dealer" />
 				</div>
 			</Hero>
 		</Container>
 	</Section>
 
-	{/* Grid - Fixed Responsive Sizes */}
+	{/* Grid */}
 	<Section>
 		<Container>
 			<Grid>
-				{/* ImageOne - Displayed at 1216x811 */}
-				<GridItem 
-					image={ImageOne} 
-					imageAlt="Car dealer" 
-					span={2} 
-					link="/cars" 
-					As="a" 
-					xl
-					widths={[800, 1250]}
-					sizes="(max-width: 1024px) 100vw, 800px"
-				>
+				<GridItem image={ImageOne} imageAlt="Car dealer" span={2} link="/cars" As="a" xl>
 					<h2>Featured cars</h2>
-					<p>Discover the ultimate driving experience...</p>
-					<Button As="button" type="button" color="white-outline" class:list={"mt-4 group-hover:bg-white/10"}>View all cars</Button>
+					<p>
+						Discover the ultimate driving experience with our exclusive collection of featured cars. Whether
+						you're looking for a sleek sports car, a reliable family vehicle, or an eco-friendly hybrid, we
+						have something for everyone. Our extensive inventory is carefully curated to ensure that you
+						find the perfect match for your lifestyle and budget.
+					</p>
+					<Button As="button" type="button" color="white-outline" class:list={"mt-4 group-hover:bg-white/10"}
+						>View all cars</Button
+					>
 				</GridItem>
 
-				{/* ImageTwo - Displayed at 732x488 */}
-				<GridItem 
-					image={ImageTwo} 
-					imageAlt="Car dealer" 
-					link="/cars" 
-					As="a"
-					widths={[400, 750]}
-					sizes="(max-width: 768px) 100vw, 400px"
-				>
+				<GridItem image={ImageTwo} imageAlt="Car dealer" link="/cars" As="a">
 					<h3>Featured cars</h3>
-					<p>Discover the ultimate driving experience...</p>
-					<Button As="button" type="button" color="white-outline" class:list={"mt-4 group-hover:bg-white/10"}>View all cars</Button>
+					<p>
+						Discover the ultimate driving experience with our exclusive collection of featured cars. Whether
+						you're looking for a sleek sports car, a reliable family vehicle, or an eco-friendly hybrid, we
+						have something for everyone.
+					</p>
+					<Button As="button" type="button" color="white-outline" class:list={"mt-4 group-hover:bg-white/10"}
+						>View all cars</Button
+					>
 				</GridItem>
 
 				<GridItem>
 					<h3>Featured cars</h3>
-					<p>Discover the ultimate driving experience...</p>
+					<p>
+						Discover the ultimate driving experience with our exclusive collection of featured cars. Whether
+						you're looking for a sleek sports car, a reliable family vehicle, or an eco-friendly hybrid, we
+						have something for everyone.
+					</p>
 				</GridItem>
 			</Grid>
 		</Container>
 	</Section>
 
-	{/* ... rest of the sections remain the same ... */}
-    {/* TIP: Reuse the same logic for the second Hero Image below if it's the same asset */}
-    <Section class:list={"bg-gray-50"}>
+	{/* Hero */}
+	<Section class:list={"bg-gray-50"}>
 		<Container>
 			<Hero invert>
 				<div slot="hero-left" class="prose lg:max-w-2xl">
 					<h2>Welcome to our car dealer!</h2>
-					<p>Find your next car here...</p>
+					<p>
+						Find your next car here. We have a wide range of cars for sale. Browse through our collection
+						and find the perfect car that suits your needs and budget.
+					</p>
 				</div>
 				<div slot="hero-right">
-					<Image 
-						src={ImageCarDealer} 
-						alt="Car dealer" 
-						widths={[480, 800]} 
-						sizes="(max-width: 1024px) 100vw, 480px"
-					/>
+					<Image src={ImageCarDealer} alt="Car dealer" />
 				</div>
 			</Hero>
 		</Container>
 	</Section>
-    
-    {/* Remaining sections (ShowCars, Stats, FAQ, Team) follow... */}
+
+	{/* Cars */}
+	<Section class:list={"bg-blue-50"}>
+		<Container>
+			<Heading>
+				<h2 slot="heading-title" class="mb-0">Featured cars</h2>
+				<p slot="heading-content">
+					Search for your next car here. We have a wide range of cars for sale. Browse through our collection
+					and find the perfect car that suits your needs and budget.
+				</p>
+			</Heading>
+
+			<ShowCars slugs={["audi-tt-coupe", "porsche-911", "volkswagen-polo-gti"]} />
+		</Container>
+	</Section>
+
+	{/* Stats */}
+	<Section>
+		<Container>
+			<Heading class:list={"text-center mx-auto"}>
+				<h2 slot="heading-title" class="text-balance">Why choose us?</h2>
+				<p slot="heading-content">
+					We are the leading car dealer in the country. With over 20 years of experience, we have helped
+					thousands of customers find their dream car.
+				</p>
+			</Heading>
+
+			<Stats
+				items={[
+					{
+						title: "Cars in stock",
+						value: "259",
+						animateNumber: true,
+						animateFrom: 100,
+					},
+					{
+						title: "Satified customers",
+						value: "1088",
+						animateNumber: true,
+						animateFrom: 800,
+					},
+					{
+						title: "Experience",
+						value: "20+ years",
+					},
+				]}
+			/>
+		</Container>
+	</Section>
+
+	{/* CTA */}
+	<Section class:list={"bg-gradient-to-br from-gray-900 to-gray-700"}>
+		<Container>
+			<Heading class:list={"mb-0 lg:mb-0 prose-invert text-center mx-auto"}>
+				<h2 slot="heading-title">Can't find the ideal car?</h2>
+
+				<p slot="heading-content">
+					Our team is here to help you find the perfect car that suits your needs and budget. Whether you're
+					looking for a sleek sports car, a reliable family vehicle, or an eco-friendly hybrid, we have
+					something for everyone.
+				</p>
+
+				<Button href="/contact" color="white" class:list={"mt-8"}>Contact us</Button>
+			</Heading>
+		</Container>
+	</Section>
+
+	{/* Cars */}
+	<Section class:list={"bg-gray-50"}>
+		<Container>
+			<Heading>
+				<h2 slot="heading-title" class="mb-0">Recent cars</h2>
+				<p slot="heading-content">
+					Search for your next car here. We have a wide range of cars for sale. Browse through our collection
+					and find the perfect car that suits your needs and budget.
+				</p>
+			</Heading>
+
+			<ShowCars ui="grid" slugs={["audi-tt-coupe", "porsche-911", "volkswagen-polo-gti"]} />
+		</Container>
+	</Section>
+
+	{/* News */}
+	<Section>
+		<Container>
+			<Heading class:list={"max-w-3xl"}>
+				<h2 slot="heading-title">Latest news</h2>
+
+				<p slot="heading-content">
+					Stay up to date with the latest news and updates from our car dealer. Read our blog posts to learn
+					more about our featured cars, special offers, and industry news.
+				</p>
+			</Heading>
+
+			<ShowPosts />
+		</Container>
+	</Section>
+
+	{/* FAQ */}
+	<Section class:list={"bg-gray-50"}>
+		<Container>
+			<Heading class:list={"max-w-3xl mx-auto lg:text-center"}>
+				<h2 slot="heading-title">Welcome to our car dealer!</h2>
+
+				<p slot="heading-content">
+					Find your next car here. We have a wide range of cars for sale. Browse through our collection and
+					find the perfect car that suits your needs and budget.
+				</p>
+			</Heading>
+
+			<Faq
+				items={[
+					{
+						question: "What's the best thing about Switzerland?",
+						answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+					},
+					{
+						question: "What do you call a fake noodle?",
+						answer: "An impasta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+					},
+					{
+						question: "What do you call a belt made out of watches?",
+						answer: "A waist of time. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+					},
+				]}
+			/>
+		</Container>
+	</Section>
+
+	{/* Team */}
+	<Section>
+		<Container>
+			<Heading class:list={"max-w-3xl mx-auto lg:text-center"}>
+				<h2 slot="heading-title">Our team</h2>
+
+				<p slot="heading-content">
+					Meet the team behind our car dealer. Our dedicated staff is here to help you find the perfect car
+					that suits your needs and budget. Whether you're looking for a sleek sports car, a reliable family
+					vehicle, or an eco-friendly hybrid, we have something for everyone.
+				</p>
+			</Heading>
+
+			<Team />
+		</Container>
+	</Section>
 </Layout>
